@@ -18,7 +18,7 @@ create_module_templates()
 	SED="mv {} \$(echo {} | sed \"s/${PREFIX_NAME}/${TEMPLATE_PREFIX}/\")"
 	find "./${MODULE_NAME}.xctemplate/${TEMPLATE_CONFIGURATION}" -depth -name "*${PREFIX_NAME}*" -execdir sh -c "${SED}" \;
 
-	LIBRARY_PATH="${HOME}/Library/Developer/Xcode/Templates/File Templates/Module"
+	LIBRARY_PATH="${HOME}/Library/Developer/Xcode/Templates/File Templates/Slice"
 	MODULE_PATH="${LIBRARY_PATH}/"
 	
 	rm -rf "${MODULE_PATH}"
@@ -26,6 +26,10 @@ create_module_templates()
 	cp -R "${MODULE_NAME}.xctemplate" "${MODULE_PATH}"
 }
 
-create_module_templates "Module" "Default" "ViewLessModule_"
-create_module_templates "Module" "ownsView" "Module_"
-create_module_templates "Module" "watchOS" "WatchModule_"
+#create_module_templates "Module" "Default" "ViewLessModule_"
+#create_module_templates "Module" "ownsView" "Module_"
+#create_module_templates "Module" "watchOS" "WatchModule_"
+
+create_module_templates "Slice" "Screen" "SliceScreen_"
+
+create_module_templates "Slice" "Component" "SliceComponent_"
